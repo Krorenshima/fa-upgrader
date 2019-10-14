@@ -1,13 +1,14 @@
 {
   "name": "FA Upgrader",
   "description": "Essentially upgrades Furaffinity to make it better and easier to get around.",
-  "version": "1.0-beta",
+  "version": "1.1-beta",
   "short_name": "FAUP",
   "icons": {"48": "icons/icon-48.png"},
   "manifest_version": 2,
   "browser_action": {"default_icon": "icons/icon.png","default_popup": "indexs/notifier.html","default_title": "FA Upgrader"},
   "content_scripts": [{
-    "js": ["js/pen.js", "js/addons.js"],
+    "js": ["js/pen.js", "js/addons.js", "js/injector.js"],
+    "css": ["style.css"],
     "matches": [
       "http://www.furaffinity.net/*",
       "https://www.furaffinity.net/*",
@@ -15,4 +16,5 @@
       "https://beta.furaffinity.net/*"
     ]}],
   "permissions": ["http://www.furaffinity.net/", "https://www.furaffinity.net/"],
+  "web_accessable_resources": ["js/favoriter.js", "js/filter.js", "js/notif-sorter.js", "js/typer.js"]
 }
