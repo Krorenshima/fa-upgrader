@@ -7,7 +7,7 @@
   "manifest_version": 2,
   "browser_action": {"default_icon": "icons/icon.png","default_popup": "indexs/notifier.html","default_title": "FA Upgrader"},
   "content_scripts": [{
-    "js": ["js/pen.js", "js/addons.js", "js/injector.js"],
+    "js": ["js/injector.js"],
     "css": ["style.css"],
     "matches": [
       "http://www.furaffinity.net/*",
