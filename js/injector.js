@@ -9,24 +9,10 @@
   gurl = (x) => chrome.runtime.getURL(x),
   cel = (x) => window.document.createElement(x),
   body = window.document.body,
-  head = window.document.head,
-  yun;
-
-  yun = function (src = "js/example.js", scrosty = !0, hob = !0) {
-    let p = cel(scrosty ? 'script' : 'link');
-    if (!scrosty) {
-      p.setAttribute('rel', 'stylesheet');
-      p.setAttribute('href', gurl(src));
-    } else {
-      p.setAttribute('src', gurl(src));
-    }
-    window[hob ? 'head' : 'body'].appendChild(p);
-    return this;
-  }
+  head = window.document.head;
 
   (function () {
     if (href.includes('furaffinity')) { // to prevent unesscessary includes
-      yun('js/pen.js')
       p = cel('script');
       p.setAttribute('src', gurl('js/pen.js'));
       body.appendChild(p);
