@@ -26,9 +26,78 @@
   margin-left: 25%;
   margin-bottom: 5px !important;
 }
+.faup-item {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 9px;
+  font-size: 15px;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.faup-item:hover {
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.faup-preview-source {
+  width: 455px;
+  overflow: hidden;
+  position: fixed;
+  display: none;
+  top: 40%;
+  right: 5px;
+  border-radius: 25px;
+  border: solid 3px #0e0f10;
+  background: #343434;
+  padding: 20px;
+}
+.faup-preview-source > img {
+  width: 355px;
+}
+.faup-fave-board {
+  width: 355px;
+  position: fixed;
+  display: none;
+  top: 40%;
+  right: 40%;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
+  border-radius: 25px;
+  border: solid 3px #0e0f10;
+  background: #343434;
+  padding: 20px;
+}
+.faup-fave-board > .title {
+  font-weight: bold;
+  font-size: 14px;
+}
+.faup-fave-board > .close {
+  float: right;
+  font-weight: bold;
+  font-size: 14px;
+}
+.faup-fave-board > .list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 155px;
+}
+.faup-show {
+  display: block;
+}
+.faup-selected {
+  background: #9bc39b;
+}
+.faup-select-all {
+  background: transparent !important;
+  border: none !important;
+  color: white;
+  outline: none;
+  font-weight: bold;
+}
 
 .message-stream > .showing {
   display: inline-table !important;
   text-align: center !important;
+  padding: 25px !important;
   width: 200px !important;
 }

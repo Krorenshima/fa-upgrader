@@ -29,7 +29,70 @@ $tran: all 0.2s ease
       margin-left: 25%
       margin-bottom: 5px $imp
 
+  &-item
+    width: 100%
+    padding: 5px
+    margin-bottom: 9px
+    font-size: 15px
+    font-weight: bold
+    background: transparent
+    transition: $tran
+    text-align: center
+    &:hover
+      font-size: 20px
+      background: rgba(255,255,255,0.4)
+
+  &-preview-source
+    width: 455px
+    overflow: hidden
+    position: fixed
+    display: none
+    top: 40%
+    right: 5px
+    border-radius: 25px
+    border: solid 3px darken($fa-light-grey, 15%)
+    background: rgb(52,52,52)
+    padding: 20px
+    & > img
+      width: 355px
+
+  &-fave-board
+    width: 355px
+    position: fixed
+    display: none
+    top: 40%
+    right: 40%
+    box-shadow: 0 0 0 100vw rgba(0,0,0,0.7)
+    border-radius: 25px
+    border: solid 3px darken($fa-light-grey, 15%)
+    background: rgb(52,52,52)
+    padding: 20px
+    & > .title
+      font-weight: bold
+      font-size: 14px
+    & > .close
+      float: right
+      font-weight: bold
+      font-size: 14px
+    & > .list
+      overflow-y: auto
+      overflow-x: hidden
+      max-height: 155px
+
+  &-show
+    display: block
+  &-selected
+    background: rgb(155,195,155)
+
+  &-select-all
+    background: transparent $imp
+    border: none $imp
+    color: white
+    outline: none
+    font-weight: bold
+
 .message-stream > .showing
   display: inline-table $imp
   text-align: center $imp
+  padding: 25px $imp
   width: 200px $imp
