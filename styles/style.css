@@ -18,6 +18,7 @@
 .faup-profile {
   font-weight: bold !important;
   display: block !important;
+  margin-bottom: 10px;
 }
 .faup-profile > img {
   width: 100px !important;
