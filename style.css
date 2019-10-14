@@ -9,17 +9,25 @@
   background: #323539;
 }
 
-.p-profile {
-  font-weight: bold;
+.faup-date {
   display: block;
 }
-
-.p-profile > img {
-  width: 100px;
+.faup-fav {
+  font-weight: bold;
+}
+.faup-profile {
+  font-weight: bold !important;
+  display: block !important;
+}
+.faup-profile > img {
+  width: 100px !important;
+  display: block !important;
+  margin-left: 25%;
+  margin-bottom: 5px !important;
 }
 
 .message-stream > .showing {
-  display: inline-table;
-  text-align: center;
-  width: 200px;
+  display: inline-table !important;
+  text-align: center !important;
+  width: 200px !important;
 }

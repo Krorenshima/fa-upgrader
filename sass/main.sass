@@ -1,4 +1,4 @@
-$impt: !important
+$imp: !important
 $mColor: rgb(25,25,25)
 $fa-orange: rgb(250,150,20)
 $fa-light-grey: rgb(50,53,57)
@@ -12,14 +12,23 @@ $tran: all 0.2s ease
   &-track
     background: $fa-light-grey
 
-.p-profile
-  font-weight: bold
-  display: block
+.faup
+  &-date
+    display: block
 
-.p-profile > img
-  width: 100px
+  &-fav
+    font-weight: bold
+
+  &-profile
+    font-weight: bold $imp
+    display: block $imp
+    & > img
+      width: 100px $imp
+      display: block $imp
+      margin-left: 25%
+      margin-bottom: 5px $imp
 
 .message-stream > .showing
-  display: inline-table
-  text-align: center
-  width: 200px
+  display: inline-table $imp
+  text-align: center $imp
+  width: 200px $imp
