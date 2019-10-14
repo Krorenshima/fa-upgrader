@@ -16,5 +16,5 @@
       "https://beta.furaffinity.net/*"
     ]}],
   "permissions": ["http://www.furaffinity.net/", "https://www.furaffinity.net/"],
-  "web_accessible_resources": ["js/favoriter.js", "js/filter.js", "js/notif-sorter.js", "js/typer.js"]
+  "web_accessible_resources": ["js/*"]
 }
