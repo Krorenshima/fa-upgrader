@@ -6,14 +6,11 @@
   "icons": {"48": "icons/icon-48.png"},
   "manifest_version": 2,
   "browser_action": {"default_icon": "icons/icon.png","default_popup": "indexes/notifier.html","default_title": "FA Upgrader"},
+  "background": {"page": "indexes/glob.html"},
   "content_scripts": [{
-    "js": ["js/injector.js"],
-    "matches": [
-      "http://www.furaffinity.net/*",
-      "https://www.furaffinity.net/*",
-      "http://beta.furaffinity.net/*",
-      "https://beta.furaffinity.net/*"
-    ]}],
+    "js": ["js/pen.js", "js/addons.js", "js/injector.js"],
+    "matches": ["http://www.furaffinity.net/*","https://www.furaffinity.net/*","http://beta.furaffinity.net/*","https://beta.furaffinity.net/*"]
+  }],
   "permissions": ["http://www.furaffinity.net/", "https://www.furaffinity.net/"],
   "web_accessible_resources": ["js/*", "styles/*", "indexes/*", "icons/*"]
 }

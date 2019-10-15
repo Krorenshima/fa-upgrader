@@ -94,6 +94,42 @@
   outline: none;
   font-weight: bold;
 }
+.faup-to-top {
+  position: fixed;
+  padding: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  outline: none;
+  background: #0e0f10;
+  right: 25px;
+  bottom: 25px;
+  border: solid 5px black;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+}
+.faup-to-top:hover {
+  opacity: 1;
+}
+.faup-notif-list {
+  right: 15px;
+  top: 65px;
+  height: 65%;
+  width: 200px;
+  position: fixed;
+}
+.faup-notif-list > li {
+  font-weight: bolder;
+  opacity: 0.2;
+  padding: 5px;
+  background: #323539;
+  border-radius: 10px;
+  transition: opacity 0.2s ease;
+}
+.faup-notif-list > li:hover {
+  opacity: 1;
+  background: #4a4e54;
+}
 
 .message-stream > .showing {
   display: inline-table !important;

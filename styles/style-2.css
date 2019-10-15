@@ -6,11 +6,16 @@
   border: none;
   text-decoration: none;
   list-style-type: none;
-  color: white;
+}
+
+a {
+  font-weight: bold;
+  color: inherit;
 }
 
 body {
   background: rgb(25, 25, 35);
+  color: white;
   width: 300px;
   height: 500px;
   font-family: Arial;
@@ -26,6 +31,17 @@ body {
   padding: 5px;
 }
 
+input[type="text"] {
+  background: none;
+  color: white;
+  padding: 5px;
+  border-bottom: solid 0px rgba(215,32,131,.59);
+  transition: border-bottom 0.2s ease;
+}
+input[type="text"]:hover, input[type="text"]:focus {
+  border-bottom: solid 2px rgba(215,32,131,.59);
+}
+
 .wrapper {
   margin-top: 45px;
 }
@@ -34,6 +50,11 @@ body {
   bottom: 0;
   left: 0;
   position: fixed;
+  opacity: 0.2;
+  transition: opacity 0.2s ease;
+}
+.icon:hover {
+  opacity: 1;
 }
 
 .options {
