@@ -69,7 +69,7 @@
     init () {
       this.toggle('faup-close', 'faup-btn')
       .html('X')
-      .on('mouseup', () => {if (board.hasClass('faup-show') {board.toggle('faup-show')}})
+      .on('mouseup', () => {if (board.hasClass('faup-show')) {board.toggle('faup-show')}})
       return this;
     }
   }).button({
