@@ -44,8 +44,6 @@
     });
   }
   board = pen('<div class="faup-fave-board">');
-  board.show = !1;
-  board.toggleOver = function () {if (board.show && !board.hasClass('faup-show')) {board.toggle('faup-show')} else {board.toggle('faup-show')}}
   board.span({
     class: 'title', name: 'listTitle'
   }).ul({
@@ -69,7 +67,9 @@
   }).span({
     name: 'closeBtn',
     init () {
-      this.toggle('faup-close', 'faup-btn').html('X').on('mouseup', () => {if (board.show) {board.show = !1; board.toggle('faup-show')}})
+      this.toggle('faup-close', 'faup-btn')
+      .html('X')
+      .on('mouseup', () => {if (board.hasClass('faup-show') {board.toggle('faup-show')}})
       return this;
     }
   }).button({
@@ -173,8 +173,7 @@
           if (parent.hasClass('selected')) {li.toggle('faup-selected')}
           li.create(`<a href="${v.attrs.href}" title="${k}">`, 'child').html(k);
         });
-        board.show = !0;
-        if (board.show) {board.toggle('faup-show')}
+        if (!board.hasClass('faup-show')) {board.toggle('faup-show')}
       });
     }
   });

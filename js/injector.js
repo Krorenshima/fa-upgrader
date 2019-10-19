@@ -9,7 +9,8 @@
   gurl = (x) => chrome.runtime.getURL(x),
   cel = (x) => window.document.createElement(x),
   body = window.document.body,
-  head = window.document.head;
+  head = window.document.head,
+  p; // global appendment child
 
   if (href.includes('furaffinity')) { // to prevent unesscessary includes
     p = cel('script');
@@ -38,6 +39,12 @@
       case href.includes('search'):
         p = cel('script');
         p.setAttribute('src', gurl('js/filter.js'));
+        body.appendChild(p);
+      break;
+
+      case href.includes('controls/journal'):
+        p = cel('script');
+        p.setAttribute('src', gurl('js/journals.js'));
         body.appendChild(p);
       break;
 

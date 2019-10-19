@@ -9,6 +9,52 @@
   background: #323539;
 }
 
+.faup-board-ext, .faup-fave-board, .faup-preview-source, .faup-jour {
+  width: 455px;
+  overflow: hidden;
+  position: fixed;
+  border-radius: 25px;
+  border: solid 3px #0e0f10;
+  background: #343434;
+  padding: 20px;
+}
+
+.faup-jour {
+  right: 2px;
+  top: 95px;
+  opacity: 0.2;
+  transition: opacity 0.2s ease;
+  overflow: auto;
+  max-height: 255px;
+}
+.faup-jour:hover {
+  opacity: 1;
+}
+.faup-jour > .edit-remo {
+  position: absolute;
+}
+.faup-jour > .edit-remo > button {
+  padding: 10px 5px;
+  color: white;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+.faup-jour > .edit-remo > button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.faup-jour-list > li {
+  display: block;
+  padding: 5px;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+.faup-jour-list > li:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
 .faup-date {
   display: block;
 }
@@ -27,31 +73,17 @@
   margin-bottom: 5px !important;
 }
 .faup-preview-source {
-  width: 455px;
-  overflow: hidden;
-  position: fixed;
   display: none;
   top: 40%;
   right: 5px;
-  border-radius: 25px;
-  border: solid 3px #0e0f10;
-  background: #343434;
-  padding: 20px;
 }
 .faup-preview-source > img {
   width: 355px;
 }
 .faup-fave-board {
-  width: 355px;
-  position: fixed;
-  display: none;
   top: 40%;
   right: 40%;
   box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
-  border-radius: 25px;
-  border: solid 3px #0e0f10;
-  background: #343434;
-  padding: 20px;
 }
 .faup-fave-board > .title {
   font-weight: bold;

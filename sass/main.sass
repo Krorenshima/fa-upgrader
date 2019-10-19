@@ -12,7 +12,47 @@ $tran: all 0.2s ease
   &-track
     background: $fa-light-grey
 
+.faup-board-ext
+  width: 455px
+  overflow: hidden
+  position: fixed
+  border-radius: 25px
+  border: solid 3px darken($fa-light-grey, 15%)
+  background: rgb(52,52,52)
+  padding: 20px
+
 .faup
+  &-jour
+    @extend .faup-board-ext
+    right: 2px
+    top: 95px
+    opacity: 0.2
+    transition: opacity 0.2s ease
+    overflow: auto
+    max-height: 255px
+    &:hover
+      opacity: 1
+    & > .edit-remo
+      position: absolute
+      & > button
+        padding: 10px 5px
+        color: white
+        display: inline-block
+        background: transparent
+        border: none
+        border-radius: 10px
+        transition: $tran
+        &:hover
+          background: rgba(255,255,255,0.5)
+    &-list > li
+      display: block
+      padding: 5px
+      font-weight: bold
+      background: transparent
+      transition: $tran
+      &:hover
+        background: rgba(255,255,255,0.5)
+
   &-date
     display: block
 
@@ -30,30 +70,19 @@ $tran: all 0.2s ease
       margin-bottom: 5px $imp
 
   &-preview-source
-    width: 455px
-    overflow: hidden
-    position: fixed
+    @extend .faup-board-ext
     display: none
     top: 40%
     right: 5px
-    border-radius: 25px
-    border: solid 3px darken($fa-light-grey, 15%)
-    background: rgb(52,52,52)
-    padding: 20px
+
     & > img
       width: 355px
 
   &-fave-board
-    width: 355px
-    position: fixed
-    display: none
+    @extend .faup-board-ext
     top: 40%
     right: 40%
     box-shadow: 0 0 0 100vw rgba(0,0,0,0.7)
-    border-radius: 25px
-    border: solid 3px darken($fa-light-grey, 15%)
-    background: rgb(52,52,52)
-    padding: 20px
     & > .title
       font-weight: bold
       font-size: 14px
