@@ -1,6 +1,7 @@
 // notifies the user about their notifications on fa in real time
 let out = pen('<ul class="out">');
 wrapper.append(out);
+wrapper.create('<p>', 'child').html('warning: buggy, may not display notifs correctly')
 
 setInterval(() => {
   pen.ajax({

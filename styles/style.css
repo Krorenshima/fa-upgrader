@@ -26,20 +26,6 @@
   margin-left: 25%;
   margin-bottom: 5px !important;
 }
-.faup-item {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 9px;
-  font-size: 15px;
-  font-weight: bold;
-  background: transparent;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-.faup-item:hover {
-  font-size: 20px;
-  background: rgba(255, 255, 255, 0.4);
-}
 .faup-preview-source {
   width: 455px;
   overflow: hidden;
@@ -81,6 +67,20 @@
   overflow-x: hidden;
   max-height: 155px;
 }
+.faup-fave-board > .list > li {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 9px;
+  font-size: 15px;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.faup-fave-board > .list > li:hover {
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.4);
+}
 .faup-show {
   display: block;
 }
@@ -102,6 +102,10 @@
   border-radius: 15px;
   outline: none;
   background: #0e0f10;
+  background-image: url("../icons/up-arrow.png");
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
   right: 25px;
   bottom: 25px;
   border: solid 5px black;

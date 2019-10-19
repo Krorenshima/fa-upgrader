@@ -12,7 +12,8 @@
       behavior: 'smooth'
     })
   }).css('display', 'none');
-
   pBody.append(stt);
-  pWin.on('scroll', (e) => {stt.css('display', (window.scrollY >= 100 ? '' : 'none'))});
+  pWin.on('scroll', (e) => {
+    stt.css('display', (window.scrollY >= 100 ? '' : 'none'))
+  });
 }())

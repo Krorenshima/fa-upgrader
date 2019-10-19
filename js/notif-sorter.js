@@ -6,7 +6,8 @@
   if (!pen.define.isDefined('img')) {pen.define({}, 'img')}
 
   let results, domain, msgs, stat, board,
-      preview, overanything, powsen, sbou;
+      preview, overanything, powsen, sbou,
+      sendimgreq;
   results = pen.$$('div[id^="messages-"]', !0);
   domain = "https://www.furaffinity.net";
 
@@ -34,8 +35,17 @@
       break;
     }
   }
+  sendimgreq = function (rest, text) {
+    pen.ajax({
+      url: domain+rest, type: 'GET',
+      load (ef, e) {
+        images.set(pen.cc(text), (powsen(ef).$('a.button.download-logged-in[href]', !0).attrs.href))
+      }, progress() {}
+    });
+  }
   board = pen('<div class="faup-fave-board">');
   board.show = !1;
+  board.toggleOver = function () {if (board.show && !board.hasClass('faup-show')) {board.toggle('faup-show')} else {board.toggle('faup-show')}}
   board.span({
     class: 'title', name: 'listTitle'
   }).ul({
@@ -43,19 +53,17 @@
     init () {
       this.attr({class: 'list'})
       .on('mouseover', (e) => {
-        if (e.target.nodeName.toLowerCase() === 'ul') {return}
+        if (e.target === this.el) {return}
         let trg = pen(e.target);
         if (trg.tag === 'li') {trg = trg.children[0]}
 
-        if (!images.has(pen.cc(trg.text))) {pen.ajax({url: domain+trg.attrs.href, type: 'GET', load (ef, e) {let m = powsen(ef).$('a.button.download-logged-in[href]', !0).attrs.href; images.set(pen.cc(trg.text), m)}, progress () {}})}
+        if (!images.has(pen.cc(trg.text))) {sendimgreq(trg.attrs.href, trg.text)}
 
-        preview._img.attr('src', images.get(pen.cc(trg.text)));
-        overanything = !0;
-        if (overanything && !preview.hasClass('faup-show')) {preview.toggle('faup-show')}
+        preview.prev.attr('src', images.get(pen.cc(trg.text)));
+        if (!preview.hasClass('faup-show')) {preview.toggle('faup-show')}
       }).on('mouseout', (e) => {
-        overanything = !1
-        if (!overanything && preview.hasClass('faup-show')) {preview.toggle('faup-show')}
-      });
+        if (preview.hasClass('faup-show')) {preview.toggle('faup-show')}
+      })
       return this;
     }
   }).span({
@@ -76,7 +84,6 @@
   preview = pen('<div class="faup-preview-source" align="center">');
   preview.img({class: 'faup-preview', name: 'prev'});
   pBody.append(board, preview);
-  // console.log(board, preview);
   for (let i = 0, len = results.length, res, contact, results2, msid; i < len; i++) {
     res = results[i];
     contact = res.$('.message-stream', !0);
@@ -111,14 +118,12 @@
         res2.children[2].remove(!0);
         elms[2] = pen('<span class="ffavorites">').html(' favorited ').append(elms[3].attr('class', 'faup-fav'));
         elms[2].on('mouseover', (e) => {
-          pen.ajax({url: domain+elms[2].children[0].attrs.href, type: 'GET', load (ef, e) {let m = powsen(ef).$('a.button.download-logged-in[href]', !0).attrs.href; images.set(pen.cc(elms[2].children[0].text), m)}, progress () {}});
-
-          preview._img.attr('src', images.get(pen.cc(elms[2].children[0].text)));
-          overanything = !0;
-          if (overanything && !preview.hasClass('faup-show')) {preview.toggle('faup-show')}
+          let emas = elms[2].children[0];
+          sendimgreq(emas.attrs.href, (emas.attr('data-otext') ? emas.data.otext : emas.text));
+          preview.prev.attr('src', images.get(pen.cc(emas.text)));
+          if (!preview.hasClass('faup-show')) {preview.toggle('faup-show')}
         }).on('mouseout', (e) => {
-          overanything = !1;
-          if (!overanything && preview.hasClass('faup-show')) {preview.toggle('faup-show')}
+          if (preview.hasClass('faup-show')) {preview.toggle('faup-show')}
         });
         elms[3] = pen('<span class="faup-date">').html('on ').append(res2.children[2].remove(!0));
         elms[1] = res2.children[1].remove(!0);
@@ -143,20 +148,29 @@
       } else {res2.css('display', 'none')}
     }
   }
+  let alhas = !1;
   msgs.forEach(user => {
     if (user.faves.size > 1) {
       let $el = user.first.$('span > a', !0);
+      $el.attr('data-otext', $el.text);
       $el.html(`${user.faves.size} pics`);
       user.first.on('contextmenu', (e) => {
         e.preventDefault(); e.stopPropagation();
-        if (!pen.empty(board.listTitle.children)) {board.listTitle.remove('all')}
+        if (!pen.empty(board.faveList.children)) {board.faveList.remove('all')}
         board.listTitle.html('faves from '+user.name);
         user.faves.forEach((v, k) => {
           let li, parent;
-          li = board.listTitle.create('<li class="faup-item">', 'child');
           parent = pen(pen(v.parent).parent);
+          li = board.faveList.create('<li class="faup-item">', 'child');
+          if (!alhas) {
+            board.faveList.on('click', (e) => {
+              if (e.target === board.faveList.el) {return}
+              if (e.target.nodeName !== 'li') {return}
+              li.toggle('faup-selected'); parent.el.click();
+            });
+            alhas = !0;
+          }
           if (parent.hasClass('selected')) {li.toggle('faup-selected')}
-          li.on('click', (e) => {li.toggle('faup-selected'); pen(pen(v.parent).parent).el.click()});
           li.create(`<a href="${v.attrs.href}" title="${k}">`, 'child').html(k);
         });
         board.show = !0;

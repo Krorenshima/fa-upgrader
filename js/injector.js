@@ -1,6 +1,6 @@
 
-
 (function () {
+  // if (window === window.top) {chrome.extension.sendRequest({})}
   // this stuff at the top just makes it easier on me-
   // cause I hate raw js but its essential sometimes if you don't want to take up resources
   // and why I'm doing "window" everytime, is because I want it to be specific and not conflict
@@ -27,44 +27,23 @@
     p = cel('link');
     p.setAttribute('rel', 'stylesheet'); p.setAttribute('href', gurl('styles/style.css'))
     head.appendChild(p);
-  }
 
-  switch (true) {
-    case href.includes('msg/others/'):
-      p = cel('script');
-      p.setAttribute('src', gurl('js/notif-sorter.js'));
-      body.appendChild(p)
-    break;
+    switch (true) {
+      case href.includes('msg/others/'):
+        p = cel('script');
+        p.setAttribute('src', gurl('js/notif-sorter.js'));
+        body.appendChild(p)
+      break;
 
-    case href.includes('search'):
-      p = cel('script');
-      p.setAttribute('src', gurl('js/filter.js'));
-      body.appendChild(p);
-    break;
+      case href.includes('search'):
+        p = cel('script');
+        p.setAttribute('src', gurl('js/filter.js'));
+        body.appendChild(p);
+      break;
 
-    default:
-      console.log('no scripts to inject');
-      // a default
-  }
-  setInterval(() => {
-    let msgs, fina = 0;
-    if (window.location.href.endsWith('controls/messages/')) {
-      msgs = pen.$$('a[href*="/msg"]', !0);
-      msgs = msgs.filter(msg => {if ((/[0-9] /gi).test(msg.text)) {return msg}});
-      msgs.map((msg) => {return +msg.text.replace(/[a-zA-Z ]/gi, '')})
-      .forEach(msg => {fina += msg});
-    } else {
-      pen.ajax({
-        url: 'https://www.furaffinity.net/controls/messages/',
-        load (ef, e) {
-          msgs = pen((new DOMParser()).parseFromString(ef, 'text/html')).$$('a[href*="/msg"]', !0);
-          msgs = msgs.filter(msg => {if ((/[0-9] /gi).test(msg.text)) {return msg}});
-          msgs.map((msg) => {return +msg.text.replace(/[a-zA-Z ]/gi, '')})
-          .forEach(msg => {fina += msg});
-        },
-        progress () {}
-      })
+      default:
+        console.log('no scripts to inject');
+        // a default
     }
-    chrome.extension.sendRequest({message: 'setbadge', count: fina});
-  }, (localStorage['update'] || 5000));
+  }
 }());
