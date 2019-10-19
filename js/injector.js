@@ -17,40 +17,44 @@
     p.setAttribute('src', gurl('js/pen.js'));
     body.appendChild(p);
 
-    p = cel('script');
-    p.setAttribute('src', gurl('js/addons.js'));
-    body.appendChild(p);
+    setTimeout(() => {
+      p = cel('script');
+      p.setAttribute('src', gurl('js/addons.js'));
+      body.appendChild(p);
+    }, 500);
 
-    p = cel('script');
-    p.setAttribute('src', gurl('js/siteessent.js'));
-    body.appendChild(p);
 
     p = cel('link');
     p.setAttribute('rel', 'stylesheet'); p.setAttribute('href', gurl('styles/style.css'))
     head.appendChild(p);
 
-    switch (true) {
-      case href.includes('msg/others/'):
-        p = cel('script');
-        p.setAttribute('src', gurl('js/notif-sorter.js'));
-        body.appendChild(p)
-      break;
+    setTimeout(() => {
+      p = cel('script');
+      p.setAttribute('src', gurl('js/siteessent.js'));
+      body.appendChild(p);
+      switch (true) {
+        case href.includes('msg/others/'):
+          p = cel('script');
+          p.setAttribute('src', gurl('js/notif-sorter.js'));
+          body.appendChild(p)
+        break;
 
-      case href.includes('search'):
-        p = cel('script');
-        p.setAttribute('src', gurl('js/filter.js'));
-        body.appendChild(p);
-      break;
+        case href.includes('search'):
+          p = cel('script');
+          p.setAttribute('src', gurl('js/filter.js'));
+          body.appendChild(p);
+        break;
 
-      case href.includes('controls/journal'):
-        p = cel('script');
-        p.setAttribute('src', gurl('js/journals.js'));
-        body.appendChild(p);
-      break;
+        case href.includes('controls/journal'):
+          p = cel('script');
+          p.setAttribute('src', gurl('js/journals.js'));
+          body.appendChild(p);
+        break;
 
-      default:
-        console.log('no scripts to inject');
-        // a default
-    }
+        default:
+          console.log('no scripts to inject');
+          // a default
+      }
+    }, 5000)
   }
 }());

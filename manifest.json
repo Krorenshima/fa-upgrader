@@ -1,7 +1,7 @@
 {
   "name": "FA Upgrader",
   "description": "Essentially upgrades Furaffinity to make it better and easier to get around.",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "short_name": "FAUP",
   "icons": {"48": "icons/icon-48.png"},
   "manifest_version": 2,
