@@ -83,6 +83,7 @@
 .faup-fave-board {
   top: 40%;
   right: 40%;
+  display: none;
   box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
 }
 .faup-fave-board > .title {
