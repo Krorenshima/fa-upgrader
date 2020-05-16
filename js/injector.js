@@ -35,9 +35,9 @@
         //   body.appendChild(azue('script', 'filter'));
         // break;
 
-        // case href.includes('controls/journal'):
-        //   body.appendChild(azue('script', 'journals'));
-        // break;
+        case href.includes('controls/journal'):
+          body.appendChild(azue('script', 'journals'));
+        break;
 
         default:
           console.log('no scripts to inject');
