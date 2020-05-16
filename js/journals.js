@@ -1,4 +1,5 @@
 (function () {
+  if (this['pen'] == null) {location.reload(); return}
   if (!pen.define.isDefined('ul')) {pen.define({}, 'ul')}
   let jours, board;
   pen.$('.sidebar', !0).css('display', 'none');

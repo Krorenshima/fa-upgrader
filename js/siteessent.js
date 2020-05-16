@@ -1,5 +1,6 @@
 // makes favoriting, watching and much more, eaiser
 (function () {
+  if (this['pen'] == null) {location.reload(); return}
   let user = pen.$$('a#my-username', !0);
   user.forEach(child => {
     child.text = child.text.replace(/~|\(|\)|my fa /gi, '');
