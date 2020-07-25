@@ -1,5 +1,5 @@
 // filters the search page and removes the "browse" page
 (function () {
-  if (this['pen'] == null) {location.reload(); return}
-  
+  if (this['p'] == null) {location.reload(); return}
+
 })();

@@ -7,7 +7,7 @@
   "manifest_version": 2,
   "browser_action": {"default_icon": "icons/icon.png","default_popup": "indexes/notifier.html","default_title": "FList Upgrader"},
   "content_scripts": [{
-    "js": ["js/pen.js", "js/addons.js", "js/injector.js"],
+    "js": ["js/includes/pen-md.min.js", "js/includes/addon-md.min.js", "js/injector.js"],
     "matches": ["http://www.furaffinity.net/*","https://www.furaffinity.net/*","http://beta.furaffinity.net/*","https://beta.furaffinity.net/*"]
   }],
   "permissions": ["http://www.furaffinity.net/", "https://www.furaffinity.net/"],

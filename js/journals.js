@@ -1,12 +1,12 @@
 (function () {
-  if (this['pen'] == null) {location.reload(); return}
-  if (!pen.define.isDefined('ul')) {pen.define({}, 'ul')}
+  if (this['p'] == null) {location.reload(); return}
+  if (!p.define.isDefined('ul')) {p.define({}, 'ul')}
   let jours, board, jids;
-  pen.$('.sidebar', !0).css('display', 'none');
+  p.$('.sidebar', !0).css('display', 'none');
   jids = new Map();
-  jours = pen.$('#journals-list', !0)
+  jours = p.$('#journals-list', !0)
   jours = jours.remove(!0).children;
-  board = pen('<div class="faup-jour">');
+  board = p('<div class="faup-jour">');
   board.div({
     class: 'edit-remo', name: 'editRom',
     init () {
@@ -18,7 +18,7 @@
     init () {
       this.on('mouseover', (e) => {
         if (e.target.nodeName !== 'LI') {return}
-        let tg = pen(e.target);
+        let tg = p(e.target);
         if (jids.has(tg.data.jid)) {
           console.log(jids.get(tg.data.jid));
         }
@@ -26,7 +26,7 @@
       return this;
     }
   })
-  pBody.append(board);
+  p.body.append(board);
   jours.forEach(jour => {
     let li, jouch, jid, key;
     li = board.list.create('<li>', 'child');

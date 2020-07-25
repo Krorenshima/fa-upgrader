@@ -1,0 +1,23 @@
+{
+    "env": {"browser": true, "commonjs": true, "es6": true},
+    "extends": "eslint:recommended",
+    "globals": {
+      "Atomics": "readonly", "SharedArrayBuffer": "readonly",
+      "pen": "readonly", "pBody": "readonly", "pHead": "readonly",
+      "pWin": "readonly", "pDoc": "readonly", "helpers": "readonly",
+      "wrapper": "readonly", "Historier": "readonly", "map": "readonly",
+      "chrome": "readonly", "events": "readonly", "p": "readonly",
+      "Dial": "readonly", "mager": "readonly"
+    },
+    "parserOptions": {"ecmaVersion": 2018},
+    "parser": "babel-eslint",
+    "rules": {
+      "no-unused-vars": ["off"],
+      "no-case-declarations": ["off"],
+      "no-cond-assign": ["off"],
+      "no-useless-escape": ["off"],
+      "no-console": ["off"],
+      "no-empty": ["off"],
+      "no-prototype-builtins": ["off"]
+    }
+}

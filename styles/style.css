@@ -174,3 +174,49 @@
   padding: 25px !important;
   width: 200px !important;
 }
+
+.p-prev {
+  display: inline-table;
+  padding: 5px;
+  margin: 2px 10px;
+  background: #464659;
+  text-align: center;
+  align-items: center;
+  height: 128px;
+  max-height: 128px;
+  min-height: 128px;
+  overflow: auto;
+  transition: background 0.2s ease;
+}
+.p-prev:hover {
+  background: #4b4b6a;
+}
+.p-prev > .p-link {
+  display: block;
+}
+.p-prev > .p-link > .p-profile {
+  display: block;
+  margin: auto;
+  width: 100px;
+  margin-bottom: 5px;
+}
+.p-prev > .p-btn {
+  display: block;
+  background: transparent;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 99px;
+  width: 99px;
+  max-width: 99px;
+  text-overflow: "...";
+  transition: background 0.2s ease;
+  height: 32px;
+  max-height: 32px;
+}
+.p-prev > .p-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

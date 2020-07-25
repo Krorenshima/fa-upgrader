@@ -1,2 +1,6 @@
 *.zip
 zipper.js
+addon-md.min.js
+pen-md.min.js
+addons.js
+pen.js

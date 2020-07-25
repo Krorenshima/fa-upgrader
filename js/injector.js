@@ -15,28 +15,27 @@
       s.setAttribute('rel', 'stylesheet');
       s.setAttribute('href', window.chrome.runtime.getURL(`styles/${y}.css`));
     }
-    return s;
+    body.appendChild(s);
+    return azue;
   }
   body = window.document.body; head = window.document.head;
 
   if (href.includes('furaffinity')) { // to prevent unesscessary includes
-    body.appendChild(azue('link', 'style'));
-    body.appendChild(azue('script', 'pen'));
-    setTimeout(() => {body.appendChild(azue('script', 'addons'))}, 500);
+    azue('link','style')('script', '/includes/pen-md');
+    setTimeout(() => {azue('script', '/includes/addon-md')}, 500);
     setTimeout(() => {
-      body.appendChild(azue('script', 'siteessent'));
-      body.appendChild(azue('script', 'events.min'));
+      azue('script', '/includes/events.min')('script', '/includes/Enum')('script', 'siteessent');
       switch (true) {
-        // case href.includes('msg/others/'):
-        //   body.appendChild(azue('script', 'notif-sorter'));
-        // break;
+        case href.includes('msg/others/'):
+          azue('script', 'notif-sorter');
+        break;
 
         // case href.includes('search'):
         //   body.appendChild(azue('script', 'filter'));
         // break;
 
         case href.includes('controls/journal'):
-          body.appendChild(azue('script', 'journals'));
+          // azue('script', 'journals');
         break;
 
         default:
